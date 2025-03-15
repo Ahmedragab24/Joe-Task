@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Colors */
+  --white: #ffffff;
+  --background: #d8d8d8;
+  --foreground: #7e7e7e;
+  --mainTitle: #676767;
+  --numColor: #333333;
+  --secondary: #636363;
+  --DarkGray: #353535;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-Cairo);
+}
+
+@layer utilities {
+  .mainTitle {
+    @apply text-2xl font-extrabold text-[var(--mainTitle)];
+  }
+
+  .text {
+    @apply text-[var(--foreground)] text-lg;
+  }
+
+  .card {
+    @apply shadow-md rounded-3xl bg-[var(--white)] p-8 flex flex-col gap-8 relative;
+  }
+
+  .Btn {
+    @apply bg-[var(--DarkGray)] text-[var(--white)] px-8 py-3 rounded-lg hover:bg-[var(--DarkGray)]/90 cursor-pointer;
+  }
 }
